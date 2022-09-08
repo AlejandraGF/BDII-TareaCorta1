@@ -1,0 +1,36 @@
+# This is how we named the dependency in the Chart
+enableMariaDB: true
+
+mariadb:
+
+  # The architecture can be `standalone` or `replication`, in this case, we'll use replication since we need 2 replicas.
+  architecture: replication
+  primary:
+    # Limit the computer resources that the primary will get
+    resources:
+      requests:
+        cpu: "1000m"
+        memory: "256Mi"
+      limits:
+        cpu: "1000m"
+        memory: "256Mi"
+  secondary:  
+    # Define the amount of replicas we'll have
+    replicaCount: 2
+
+    # Limit the computer resources that the secondary will get
+    resources:
+      requests:
+        cpu: "1000m"
+        memory: "512Mi"
+      limits:
+        cpu: "1000m"
+        memory: "512Mi"
+  
+  # We need metrics enabled to enable the serviceMonitor
+  metrics: 
+    enabled: true
+
+    # The service monitor enables us to work with prometheus
+    serviceMonitor: 
+      enabled: true
