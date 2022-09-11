@@ -1,0 +1,48 @@
+enableElasticMaster: true
+enableElasticData: true
+enableElasticExporter: true
+
+elastic-master:
+  nodeGroup: "master"
+  replicas: 1
+  minimumMasterNodes: -1
+  antiAffinity: "soft"
+  roles:
+    master: "true"
+    ingest: "false"
+    data: "false"
+    remote_cluster_client: "false"
+    ml: "false"
+  resources:
+    requests:
+      cpu: "1000m"
+      memory: "512Mi"
+    limits:
+      cpu: "1000m"
+      memory: "512Mi"
+
+elastic-data:
+  nodeGroup: "data"
+  masterService: "elasticsearch-master"
+  replicas: 3
+  antiAffinity: "soft"
+  roles:
+    master: "false"
+    ingest: "true"
+    data: "true"
+    remote_cluster_client: "true"
+    ml: "true"
+  resources:
+    requests:
+      cpu: "1000m"
+      memory: "768Mi"
+    limits:
+      cpu: "1000m"
+      memory: "768Mi"
+
+prometheus-elasticsearch-exporter:
+  serviceMonitor: 
+    enabled: true
+  es:
+    uri: http://elasticsearch-master.{{ .Release.Namespace }}:9200
+    timeout: 120s

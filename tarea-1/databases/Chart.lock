@@ -1,0 +1,21 @@
+dependencies:
+- name: prometheus-elasticsearch-exporter
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 4.14.0
+- name: elasticsearch
+  repository: https://helm.elastic.co
+  version: 7.17.3
+- name: elasticsearch
+  repository: https://helm.elastic.co
+  version: 7.17.3
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 13.1.2
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.8.1
+- name: mariadb
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.3.0
+digest: sha256:bd3abf4ee42292570f3cc2a55ae58566d571c56b9f4f9f34fb2d1e2cd591c450
+generated: "2022-09-06T22:05:22.847085-06:00"
