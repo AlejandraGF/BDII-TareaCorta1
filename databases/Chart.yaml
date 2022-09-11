@@ -1,0 +1,22 @@
+apiVersion: v2
+name: databases
+description: Bases de Datos de la tarea corta 1 | Base de Datos II
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+dependencies:
+  - name: prometheus-elasticsearch-exporter
+    version: "4.14.0"
+    repository: https://prometheus-community.github.io/helm-charts
+    condition: enableElasticExporter
+  - name: elasticsearch
+    alias: elastic-master
+    version: "7.17.3"
+    repository: https://helm.elastic.co
+    condition: enableElasticMaster
+  - name: elasticsearch
+    alias: elastic-data
+    version: "7.17.3"
+    repository: https://helm.elastic.co
+    condition: enableElasticData
