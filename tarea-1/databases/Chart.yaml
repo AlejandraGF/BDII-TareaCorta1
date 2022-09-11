@@ -4,9 +4,9 @@ description: Bases de Datos de la tarea corta 1 | Base de Datos II
 type: application
 version: 0.1.0
 appVersion: "0.1.0"
-
+##Incluyen las dependenicas de elasticsearch y mongodb
 dependencies:
-  - name: prometheus-elasticsearch-exporter
+  - name: prometheus-elasticsearch-exporter 
     version: "4.14.0"
     repository: https://prometheus-community.github.io/helm-charts
     condition: enableElasticExporter
@@ -20,3 +20,7 @@ dependencies:
     version: "7.17.3"
     repository: https://helm.elastic.co
     condition: enableElasticData
+  - name: mongodb
+    version: "13.1.2"
+    repository: https://charts.bitnami.com/bitnami
+    condition: enableMongoDb
