@@ -1,6 +1,7 @@
 enableElasticMaster: true
 enableElasticData: true
 enableElasticExporter: true
+enableMongoDb: true
 
 elastic-master:
   nodeGroup: "master"
@@ -46,3 +47,18 @@ prometheus-elasticsearch-exporter:
   es:
     uri: http://elasticsearch-master.{{ .Release.Namespace }}:9200
     timeout: 120s
+
+mongodb:
+  resources:
+    requests:
+      cpu: "1000m"
+      memory: "512Mi"
+    limits:
+      cpu: "1000m"
+      memory: "512Mi"
+  architecture: replicaset
+  replicaCount: 3
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
