@@ -2,7 +2,7 @@ enableElasticMaster: true
 enableElasticData: true
 enableElasticExporter: true
 enableMongoDb: true
-enablePostgresql: true
+enablePostgreSql: true
 
 elastic-master:
   nodeGroup: "master"

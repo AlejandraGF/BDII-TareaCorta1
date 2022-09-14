@@ -4,7 +4,7 @@ description: Bases de Datos de la tarea corta 1 | Base de Datos II
 type: application
 version: 0.1.0
 appVersion: "0.1.0"
-##Incluyen las dependenicas de elasticsearch y mongodb
+##Incluyen las dependenicas de elasticsearch mongodb y postgresql
 dependencies:
   - name: prometheus-elasticsearch-exporter 
     version: "4.14.0"
@@ -24,3 +24,7 @@ dependencies:
     version: "13.1.2"
     repository: https://charts.bitnami.com/bitnami
     condition: enableMongoDb
+  - name: postgresql
+    version: "11.8.1"
+    repository: https://charts.bitnami.com/bitnami
+    condition: enablePostgreSql
