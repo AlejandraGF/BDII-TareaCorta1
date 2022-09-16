@@ -288,10 +288,9 @@ En general, la experiencia de realizar trabajos como estos se suman al conocimie
 
 <center> <h3> Recomendaciones </h3> </center>
 
-- La colocación de condicionales para las dependencias de lso Helm Charts son muy útiles para trabajos de esta índole, si bien es cierto que fue sugerida en el enunciado del trabajo, su utilididad es de destacar; pues nos permite desactivar módulos de forma rápida para máquinas con pocos recursos.
+- La colocación de condicionales para las dependencias de los Helm Charts son muy útiles para trabajos de esta índole, si bien es cierto que fue sugerida en el enunciado del trabajo, su utilididad es de destacar; pues nos permite desactivar módulos de forma rápida para máquinas con pocos recursos.
   
 - La utilización de "alias" de las dependencias de los Helm Charts nos permite instalar una misma dependencia múltiples veces y con configuraciones diferentes.
-
 
 - Cuando se trabaje con Grafana, puede ser útil configurar una contraseña fija debido a que al desinstalar e instalar Grafana, la contraseña cambia y hay que buscarla en los secrets de Kubernetes; por lo que fijarla hace el trabajo más fluído.
 
