@@ -68,6 +68,7 @@ Para los dashboards se hace lo siguiente:
     - PostgreSQL: 9628
     - MariaDB: 13106
     - MongoDB: 7353
+    
 ![paso3](images/paso3grafana.png)
 
 <div style="page-break-after: always"></div>
