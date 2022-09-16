@@ -1,17 +1,15 @@
-### Instituto Tecnológico de Costa Rica 
-### Base de Datos 2
-### Tarea Corta I - Observability
-### David Achoy - 2020053336
-### Andrea Li - 2021028783
-### Deyan Sanabria - 2021046131
-### Patrick Marchena -
-### Alejandra González - 2020035049
+# Instituto Tecnológico de Costa Rica 
+> **Base de Datos 2**
+> **Tarea Corta I - Observability**  
+> **David Achoy - 2020053336**  
+> **Andrea Li - 2021028783**  
+> **Deyan Sanabria - 2021046131**  
+> **Patrick Marchena - 2017239397**  
+> **Alejandra González - 2020035049**  
 
-<br></br>
+<hr/>
 
 <center> <h2> Guía de instalación para la Tarea Corta 1 </h2> </center>
-
-<br></br>
 
 ### Guía de instalación para pre-requisitos
 
@@ -28,6 +26,7 @@ Pre-requisitos para la tarea:
 
     ![paso1](images/paso1kuber.png)
 
+    <div style="page-break-after: always"></div>
 
     - **Paso 2**: Ir a la sección de Kubernetes en ajustes.
 
@@ -38,22 +37,20 @@ Pre-requisitos para la tarea:
 
     ![paso3](images/paso3kuber.png)
 
-<br></br>
+<div style="page-break-after: always"></div>
 
 ### Guía de instalación de Helm Chart
 Dentro del repositorio, se encuentran dos Helm Chart llamados “databases” y “monitoring”. Primero se necesita instalar el Helm Chart de “monitoring” haciendo lo siguiente:
 
 1. Ubicarse en la carpeta donde se encuentra monitoring.
-2. Ejecutar el comando: helm install `<Nombre de lanzamiento>` monitoring.
+2. Ejecutar el comando: *helm install `<Nombre de lanzamiento>` monitoring*.
 3. Una vez hecho esto, grafana y prometheus quedarian instalados.
 
 Posteriormente se puede instalar “databases”, se debe seguir estrictamente este orden, puesto que se necesita de prometheus para la instalación de los exporters en databases:
 
 1. Ubicarse en la carpeta donde se encuentra databases.
-2. Ejecutar el comando: helm install `<Nombre de lanzamiento>` databases.
+2. Ejecutar el comando: *helm install `<Nombre de lanzamiento>` databases*.
 3. Una vez hecho esto, las bases de datos de Elasticsearch, PostgreSQL, MongoDB y MariaDB quedarán instaladas.
-
-<br></br>
 
 ### Configuración de Grafana
 
@@ -62,7 +59,7 @@ Grafana viene configurada por defecto incluyendo Prometheus. Si no se especifica
 Para los dashboards se hace lo siguiente:
 
 - **Paso 1**: Dirigirse a la sección de dashboards
-![paso1](images/paso1grafana.png)
+<p style="text-align:center"> <img src="images/paso1grafana.png" width="450" class="center"> </p>
 
 - **Paso 2**: Una vez en dashboards ir al apartado de "new" y seleccionar "Import".
 ![paso2](images/paso2grafana.png)
@@ -74,12 +71,12 @@ Para los dashboards se hace lo siguiente:
     - MongoDB: 7353
 ![paso3](images/paso3grafana.png)
 
+<div style="page-break-after: always"></div>
+
 - **Paso 4**: Si se necesita seleccionar a prometheus como data source, se hace y posteriormente se presiona el botón de "import".
 ![paso3](images/paso4grafana.png)
 
 Una vez hecho eso con todos los dashboards, ya estaría grafana completamente configurada.
-
-<br></br>
 
 ### Configuración de las herramientas
 
@@ -122,8 +119,6 @@ Esta sería la configuración de prometheus, donde solamente se le sobreescribe 
 
 En la configuración de grafana se puede encontrar el datasource automático de prometheus y el password de la cuenta admin queda como 11111111, si el usuario desea, puede cambiar la contraseña desde ahí.
 
-<br></br>
-
 En la parte de monitoring, están las siguientes opciones para desactivar partes de las bases de datos, en el caso de elasticsearch se incluye un condicional para el master node y los data nodes, adicionalmente, se tiene un exporter para elastic que requiere métricas.
 
 <blockquote>
@@ -136,6 +131,9 @@ En la parte de monitoring, están las siguientes opciones para desactivar partes
     enableMariaDB: false
 
 </blockquote>
+
+<div style="page-break-after: always"></div>
+
 
 En esta sección se desarrollan los valores del nodo master de elasticsearch:
 
@@ -227,6 +225,8 @@ La otra parte de la configuración es el URL dentro de kubernetes de donde se va
 
 En postgreSQL, se configuró de manera que se le pudieran limitar los recursos al primary, se habilitaron las métricas y el service monitor de prometheus, debido a la activación de las metricas se tuvo que especificar la base de datos en auth.
 
+<div style="page-break-after: always"></div>
+
 <blockquote>
 
     mongodb:
@@ -278,8 +278,6 @@ MongoDB tiene más de lo mismo, se especifican los recursos a los que puede acce
 
 Para mariaDB, se repite el proceso anterior, pero en este caso hay recursos distintos para el nodo primary y secundario, además se especifica que se quieren 2 réplicas secundarias y que la arquitectura va a ser replicación.
 
-<br></br>
-
 <center> <h3> Conclusiones </h3> </center>
 
 La tecnología nos permite experimentar lo que se vive día tras día en la industria de la computación, específicamente en el área de bases de datos, y cómo montar de manera correcta la arquitectura de las mismas. Con lo realizado en estee trabajo, se puede experimentar con la creación de diferentes tipos de nodos en diversas bases de datos, tanto SQL como NoSQL. Además, esto impulsa el aprendizaje de la estructuración correcta de las bases a como lo hacen las empresas profesionales.
@@ -287,8 +285,6 @@ La tecnología nos permite experimentar lo que se vive día tras día en la indu
 A su vez, el tema de observabilidad, si bien es cierto que no se logró hacer pruebas de carga; sí se pudieron configurar dashboards para el análisis del comportamiento de bases de datos. Como se nos mostró en clases, esto es muy utilizado en el descubrimiento de carencias que tengan nuestros sistemas y nos permite ver a futuro cómo solucionarlas de forma efectiva.
 
 En general, la experiencia de realizar trabajos como estos se suman al conocimiento que se necesita en la formación como profesionales, y no todos los profesores frecuentan la enseñanza de este tipo de tecnologías a sus estudiantes; se debería incentivar a otros profesores a enseñar cosas como estas.
-
-<br></br>
 
 <center> <h3> Recomendaciones </h3> </center>
 
