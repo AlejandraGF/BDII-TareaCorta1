@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 enableElasticMaster: true
 enableElasticData: true
 enableElasticExporter: true
