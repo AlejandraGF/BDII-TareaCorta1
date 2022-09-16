@@ -28,3 +28,7 @@ dependencies:
     version: "11.8.1"
     repository: https://charts.bitnami.com/bitnami
     condition: enablePostgreSql
+  - name: mariadb
+    version: "11.3.0"
+    repository: https://charts.bitnami.com/bitnami
+    condition: enableMariaDB
